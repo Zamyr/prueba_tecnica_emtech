@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Student {
+  id                         Int      @id @default(autoincrement())
+  nombre                     String
+  email                      String   @unique
+  telefono                   String?
+  edad                       Int?
+  nivelEducativo            String?  // 'SECUNDARIA' | 'UNIVERSITARIO' | 'POSGRADO' | 'OTRO'
+  experienciaProgramacion   String?  // 'NINGUNA' | 'BASICA' | 'INTERMEDIA' | 'AVANZADA'
+  fechaRegistro             DateTime @default(now())
+  updatedAt                 DateTime @updatedAt
+  
+  // Relaciones
+  resultados AssessmentResult[]
+  
+  @@map("students")
+}
+
+model AssessmentResult {
+  id                   Int      @id @default(autoincrement())
+  studentId            Int
+  puntuacion           Float    // Porcentaje de aciertos
+  respuestasCorrectas  Int      // Número de respuestas correctas
+  totalPreguntas       Int      // Total de preguntas
+  nivel               String   // 'PRINCIPIANTE' | 'INTERMEDIO' | 'AVANZADO'
+  respuestas          String   // JSON con las respuestas
+  recomendaciones     String   // JSON con las recomendaciones
+  fechaRealizacion    DateTime @default(now())
+  
+  // Relaciones
+  student             Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  
+  @@map("assessment_results")
+}
+
+model User {
+  id             Int      @id @default(autoincrement())
+  nombre         String
+  email          String   @unique
+  password       String
+  telefono       String?
+  edad           Int?
+  rol            String   @default("ADMIN") // 'ADMIN' | 'USER'
+  fechaRegistro  DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  
+  @@map("users")
+}
