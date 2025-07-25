@@ -169,7 +169,35 @@ npm run lint         # Linting con ESLint
 npm run type-check   # Verificación de tipos TypeScript
 ```
 
-## 🧪 Testing
+## � Herramientas de IA Utilizadas
+
+### GitHub Copilot
+**Motivo de elección**: Debido a tiempo limitado por entregables de proyectos en el trabajo actual, se utilizó GitHub Copilot como herramienta principal de desarrollo para acelerar el proceso de codificación.
+
+**Uso específico**:
+- **Generación de componentes**: Copilot asistió en la creación rápida de componentes React con TypeScript
+- **Implementación de API Routes**: Generación de endpoints con validaciones y manejo de errores
+- **Lógica de negocio**: Asistencia en el algoritmo de evaluación y sistema de recomendaciones
+- **Estilos con Tailwind**: Sugerencias de clases CSS para diseño responsive
+- **Validaciones con Zod**: Creación de esquemas de validación complejos
+- **Documentación**: Asistencia en la generación de comentarios y documentación del código
+
+**Beneficios obtenidos**:
+- ⚡ **Desarrollo acelerado**: Reducción significativa del tiempo de desarrollo
+- 🎯 **Código consistente**: Mantenimiento de patrones de código consistentes
+- 🔍 **Mejores prácticas**: Sugerencias automáticas de mejores prácticas de TypeScript y React
+- 🐛 **Menos errores**: Detección temprana de errores comunes y sugerencias de corrección
+
+**Proceso de desarrollo**:
+1. Definición de estructura y tipos TypeScript
+2. Uso de Copilot para generación de componentes base
+3. Refinamiento manual de la lógica específica
+4. Validación y testing manual de funcionalidades
+5. Optimización del código generado
+
+> **Nota**: Aunque se utilizó IA para acelerar el desarrollo, todo el código fue revisado, validado y adaptado para cumplir con los requirements específicos del proyecto.
+
+## �🧪 Testing
 
 ### Flujo de Testing Manual
 1. Registro de estudiante con datos válidos e inválidos
